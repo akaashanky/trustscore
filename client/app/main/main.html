@@ -1,0 +1,83 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>TrustNet</h1>
+    <p class="lead">Looking for a loan? Don't let your Credit Score hold you back.</p>
+    <img src="assets/images/TurboTax_Logo.png" height="100px" width="auto">
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+      <h2 class="page-header">We understand that your Credit Score doesn't define you.</h2>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+      <i class="fa fa-users fa-3x"></i>
+      <br>
+      <br>
+      <div class="lead">Personalized</div>
+      <p>We use data from your tax returns and finances to see what you qualify for with our loan providers.</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+      <i class="fa fa-check-circle-o fa-3x"></i>
+      <br>
+      <br>
+      <div class="lead">Trusted</div>
+      <p>We have vetted the loan providers we work with to ensure the right products and best experience for you.</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+      <i class="fa fa-send-o fa-3x"></i>
+      <br>
+      <br>
+      <div class="lead">Fast</div>
+      <p>We work with partners to get you funded in as little as one day. Our application process is simple and quick.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <h2 class="page-header">Get Started</h2>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <div class="lead">How much would you like to raise?</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12">
+      <slider floor="0" ceiling="100000" step="5000" precision="2" ng-model="loanValue"></slider>
+      <p class="lead">${{loanValue}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-5 col-sm-2">
+      <button class="btn btn-lg btn-primary">Get Loan Options</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Features:</h1>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
+        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+<footer class="footer">
+  <div class="container">
+      <p>TrustNet | 2015 | © trustnet.com</p>
+  </div>
+</footer>
