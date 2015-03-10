@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Signup = require('../api/signup/signup.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -46,4 +47,8 @@ User.find({}).remove(function() {
       console.log('finished populating users');
     }
   );
+});
+
+Signup.find({}).remove(function(){
+  console.log('cleared old signups');
 });

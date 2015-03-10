@@ -7,6 +7,8 @@ var SignupSchema = new Schema({
   name: String,
   email: String,
   loanAmount: Number,
+  loanPurpose: String,
+  creditScore: String,
   info: String,
   active: Boolean
 });

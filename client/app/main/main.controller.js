@@ -9,7 +9,7 @@ angular.module('turboscoreApp')
     $scope.faqs = [
     {
       question: 'Do you look into my credit score for this?',
-      answer: 'No. Our application process does not check your credit score, when finding the best loan for you.'
+      answer: 'No. Our application process does not check your credit score when finding the best loan for you. We ask you for your credit score only for informational purposes.'
     },
     {
       question: 'How much does it cost for me to use TrustCred?',
@@ -45,8 +45,12 @@ angular.module('turboscoreApp')
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
-          loanValue: function () {
-            return $scope.loanValue;
+          loanDetails: function () {
+            var loanDetails = {};
+            loanDetails.loanValue=$scope.loanValue;
+            loanDetails.loanPurpose=$scope.loanPurpose;
+            loanDetails.creditScore=$scope.creditScore;
+            return loanDetails;
           }
         }
       });
@@ -63,7 +67,7 @@ angular.module('turboscoreApp')
 
   });
 
-angular.module('turboscoreApp').controller('ModalInstanceCtrl', function ($scope, $http, $modalInstance, Signup, loanValue) {
+angular.module('turboscoreApp').controller('ModalInstanceCtrl', function ($scope, $http, $modalInstance, Signup, loanDetails) {
 
 
 
@@ -72,7 +76,9 @@ angular.module('turboscoreApp').controller('ModalInstanceCtrl', function ($scope
     var signup = new Signup();
     signup.name = $scope.newSignup.name;
     signup.email = $scope.newSignup.email;
-    signup.loanAmount = loanValue;
+    signup.loanAmount = loanDetails.loanValue;
+    signup.loanPurpose = loanDetails.loanPurpose;
+    signup.creditScore = loanDetails.creditScore;
 
     Signup.save(signup, function(){
       $modalInstance.close();
