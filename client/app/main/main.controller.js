@@ -1,9 +1,24 @@
 'use strict';
 
 angular.module('turboscoreApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $modal) {
     $scope.awesomeThings = [];
-    $scope.loanValue = 25000;
+    $scope.loanValue = 15000;
+
+
+    $scope.faqs = [
+    {
+      question: 'Do you look into my credit score for this?',
+      answer: 'No. Our application process does not check your credit score, when finding the best loan for you.'
+    },
+    {
+      question: 'How much does it cost for me to use TrustCred?',
+      answer: 'We don\'t charge you for using our matching service. If you decide to use one of the provided loan options, you will be responsible for any interest or fees charged by the provider.' 
+    },
+    {
+      question: 'Is TrustCred a direct lender?',
+      answer: 'No. TrustCred is not a lender. We are just a convenient way for loan-seekers to find the right loans for them.'
+    }];
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -20,4 +35,53 @@ angular.module('turboscoreApp')
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };
+
+    $scope.items = ['item1', 'item2', 'item3'];
+
+    $scope.open = function (size) {
+
+      var modalInstance = $modal.open({
+        templateUrl: 'myModalContent.html',
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve: {
+          loanValue: function () {
+            return $scope.loanValue;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+
+    };
+
+
+
   });
+
+angular.module('turboscoreApp').controller('ModalInstanceCtrl', function ($scope, $http, $modalInstance, Signup, loanValue) {
+
+
+
+  $scope.ok = function () {
+
+    var signup = new Signup();
+    signup.name = $scope.newSignup.name;
+    signup.email = $scope.newSignup.email;
+    signup.loanAmount = loanValue;
+
+    Signup.save(signup, function(){
+      $modalInstance.close();
+    });
+
+    
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});

@@ -1,14 +1,14 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
+<header class="hero-unit2 page-section" id="banner">
   <div class="container">
-    <h1>TrustNet</h1>
+    <h1>TrustCred</h1>
     <p class="lead">Looking for a loan? Don't let your Credit Score hold you back.</p>
     <img src="assets/images/TurboTax_Logo.png" height="100px" width="auto">
   </div>
 </header>
 
-<div class="container">
+<div class="container page-section">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 text-center">
       <h2 class="page-header">We understand that your Credit Score doesn't define you.</h2>
@@ -17,21 +17,21 @@
   <br>
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-      <i class="fa fa-users fa-3x"></i>
+      <i class="fa fa-users fa-3x blue"></i>
       <br>
       <br>
       <div class="lead">Personalized</div>
       <p>We use data from your tax returns and finances to see what you qualify for with our loan providers.</p>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-      <i class="fa fa-check-circle-o fa-3x"></i>
+      <i class="fa fa-check-circle-o fa-3x blue"></i>
       <br>
       <br>
       <div class="lead">Trusted</div>
       <p>We have vetted the loan providers we work with to ensure the right products and best experience for you.</p>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-      <i class="fa fa-send-o fa-3x"></i>
+      <i class="fa fa-send-o fa-3x blue"></i>
       <br>
       <br>
       <div class="lead">Fast</div>
@@ -40,7 +40,7 @@
   </div>
 </div>
 
-<div class="container text-center">
+<div class="container text-center page-section">
   <div class="row">
     <div class="col-lg-12 col-sm-12">
       <h2 class="page-header">Get Started</h2>
@@ -54,30 +54,105 @@
   </div>
   <div class="row">
     <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12">
-      <slider floor="0" ceiling="100000" step="5000" precision="2" ng-model="loanValue"></slider>
-      <p class="lead">${{loanValue}}</p>
+      <slider floor="0" ceiling="50000" step="1000" precision="2" ng-model="loanValue"></slider>
+      <h3>${{loanValue}}</h3>
     </div>
   </div>
+  <br>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-4 col-sm-12">
+      <select class="form-control" ng-model="loanPurpose">
+              <option value="" disabled>What is it for?</option>
+              <option value="CreditRefinancing">Credit card refinancing</option>
+              <option value="HomeImprovement">Home improvement</option>
+              <option value="HomeBuying">Home buying</option>
+              <option value="MajorPurchase">Major purchase</option>
+              <option value="CarFinancing">Car financing</option>
+              <option value="MedicalExpenses">Medical expenses</option>
+        </select>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <select class="form-control" ng-model="creditScore">
+              <option value="" disabled>What is your credit score?</option>
+              <option value="Excellent">720+</option>
+              <option value="Good">660-720</option>
+              <option value="Average">600-660</option>
+              <option value="Bad"><600</option>
+              <option value="NotSure">Not sure</option>
+        </select>
+    </div>
+  </div>
+  <br>
+  <br>
   <div class="row">
     <div class="col-sm-offset-5 col-sm-2">
-      <button class="btn btn-lg btn-primary">Get Loan Options</button>
+      <button ng-click="open('md')"class="btn btn-lg btn-primary">Get Loan Options</button>
     </div>
   </div>
 </div>
-
-<!-- <div class="container">
+<div class="container text-center page-section">
+  <br>
   <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+      <h2 class="page-header">FAQs</h2>
     </div>
   </div>
-</div> -->
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <carousel>
+        <slide ng-repeat="faq in faqs">
+          <div class="row">
+            <div class="lead col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12">
+              {{faq.question}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12">
+              {{faq.answer}}
+            </div>
+          </div>
+        </slide>
+      </carousel>      
+    </div>
+  </div>
+
+</div>
+
+
+
+<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">TrustCred is currently in private beta.</h3>
+        </div>
+        <div class="modal-body">
+
+          <p>If you're interested in enrolling for our service, please leave us your details and we will get in touch in the next couple of days.</p>
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <input type="text" id="name" class="form-control" ng-model="newSignup.name" placeholder="Your Name">
+            </div>
+            
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <input type="text" id="name" class="form-control" ng-model="newSignup.email" placeholder="Your Email">
+            </div>
+            
+          </div>
+            
+        </div>
+        <div class="modal-footer">
+            <span us-spinner="{radius:2, width:4, length: 8}"></span>
+            <button class="btn btn-primary" ng-click="ok()">I'm interested!</button>
+            <button class="btn btn-info" ng-click="cancel()">Maybe later</button>
+        </div>
+</script>
 
 <footer class="footer">
   <div class="container">
-      <p>TrustNet | 2015 | © trustnet.com</p>
+      <p>TrustCred | 2015 | © trustcred.com</p>
   </div>
 </footer>

@@ -37,3 +37,61 @@
     color: #000;
     padding: 0.2em 0;
 }
+
+.page-header, .modal-title {
+    font-weight: 200;
+}
+
+h1 {
+    font-weight: 100; 
+}
+
+.navbar-brand {
+    font-weight: 100;
+    font-size: 28px;
+}
+
+.navbar-brand>img{
+    padding-right: 3px;
+}
+
+.hero-unit2{
+position: relative;
+padding: 30px 15px;
+color: #F5F5F5;
+text-align: center;
+text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+background-color: #0082C3;
+}
+
+.page-section{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.btn-primary {
+    background-color: #0082C3;
+}
+.btn-primary:hover {
+    background-color: #ff8000;
+    border-color: #ff8000;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+}
+
+.carousel-control, .carousel-control:hover {
+    color: #0082C3;
+    text-shadow: none;
+}
+
+.carousel-indicators {
+    color: #0082C3;
+}
+.blue {
+    color: #0082C3;
+}
+.lead {
+    height: 35px;
+}

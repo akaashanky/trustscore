@@ -6,7 +6,8 @@ angular.module('turboscoreApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'ui.slider'
+  'ui.slider',
+  'ngLoadingSpinner'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
