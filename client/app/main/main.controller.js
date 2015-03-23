@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module('turboscoreApp')
-  .controller('MainCtrl', function ($scope, $http, $modal) {
+  .controller('MainCtrl', function ($scope, $http, $modal, $location, $anchorScroll) {
     $scope.awesomeThings = [];
     $scope.loanValue = 15000;
 
+    $scope.gotoSection = function(sectionId){
+      $location.hash(sectionId);
+      $anchorScroll();
+    };
 
     $scope.faqs = [
     {

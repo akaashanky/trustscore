@@ -72,10 +72,22 @@ background-color: #0082C3;
 .btn-primary {
     background-color: #0082C3;
 }
-.btn-primary:hover {
+.btn-primary:hover, .btn-orange, .btn-orange:hover {
     background-color: #ff8000;
     border-color: #ff8000;
 }
+
+ .btn-orange:hover {
+    color: #fff;
+ }
+
+ .btn-xl {
+  padding: 15px 24px;
+  font-size: 22px;
+  line-height: 1.33;
+  border-radius: 12px;
+
+ }
 
 .carousel-control.left, .carousel-control.right {
     background-image: none;
